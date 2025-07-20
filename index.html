@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>My Library</h1>
+        <button class="open-modal-btn">Add book</button>
+    </div>
+    <div class="main">
+        <div class="main-left">
+            <h2>Read</h2>
+            <div class="cards"></div>
+        </div>
+        <div class="main-right">
+            <h2>Wish List</h2>
+            <div class="cards"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <h2>Add a Book</h2>
+            <form id="bookForm">
+                <label>
+                    Title:
+                    <input type="text" name="title" required>
+                </label>
+                <label>
+                    Author:
+                    <input type="text" name="author" required>
+                </label>
+                <label>
+                    Image:
+                    <input type="file" name="image" accept="image/*">
+                </label>
+                <div class="radio-group">
+                    <label><input type="radio" name="status" value="read" required>Read</label>
+                    <label><input type="radio" name="status" value="not-read">Not Read</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>  
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
