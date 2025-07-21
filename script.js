@@ -1,16 +1,18 @@
 const myLibrary = [];
 
-function Book(title, author, image, read) {
-  this.title = title;
-  this.author = author;
-  this.image = image;
-  this.read = read;
-  this.id = crypto.randomUUID();
-}
+class Book {
+  constructor(title, author, image, read) {
+    this.title = title;
+    this.author = author;
+    this.image = image;
+    this.read = read;
+    this.id = crypto.randomUUID();
+  }
 
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
+  toggleRead() {
+    this.read = !this.read;
+  }
+}
 
 function addBookToLibrary(title, author, image, read) {
   let book = new Book(title, author, image, read);
