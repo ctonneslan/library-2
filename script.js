@@ -107,9 +107,34 @@ window.addEventListener("keydown", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  clearErrors();
+
+  let valid = true;
+
+  const title = form.elements["title"];
+  const author = form.elements["author"];
+  const status = form.querySelector('input[name="status"]:checked');
+
+  if (!title.checkValidity()) {
+    showError("error-title", "Title is required.");
+    valid = false;
+  }
+
+  if (!author.checkValidity()) {
+    showError("error-author", "Author is required.");
+    valid = false;
+  }
+
+  if (!status) {
+    showError("error-status", "Please select read status.");
+    valid = false;
+  }
+
+  if (!valid) return;
+
   const data = new FormData(form);
-  const status = data.get("status");
-  const read = status === "read";
+  const read = data.get("status") === "read";
 
   const imageFile = data.get("image");
   let imageURL = null;
@@ -124,3 +149,16 @@ form.addEventListener("submit", (e) => {
   modalOverlay.style.display = "none";
   form.reset();
 });
+
+function showError(id, message) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.textContent = message;
+  }
+}
+
+function clearErrors() {
+  document.querySelectorAll(".error-message").forEach((el) => {
+    el.textContent = "";
+  });
+}

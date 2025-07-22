@@ -26,22 +26,26 @@
         <div class="modal" id="modal">
             <button class="close-btn" id="closeBtn">&times;</button>
             <h2>Add a Book</h2>
-            <form id="bookForm">
+            <form id="bookForm" novalidate>
                 <label>
                     Title:
                     <input type="text" name="title" required>
+                    <span class="error-message" id="error-title"></span>
                 </label>
                 <label>
                     Author:
                     <input type="text" name="author" required>
+                    <span class="error-message" id="error-author"></span>
                 </label>
                 <label>
                     Image:
                     <input type="file" name="image" accept="image/*">
+                    <span class="error-message" id="error-image"></span>
                 </label>
                 <div class="radio-group">
                     <label><input type="radio" name="status" value="read" required>Read</label>
                     <label><input type="radio" name="status" value="not-read">Not Read</label>
+                    <span class="error-message" id="error-status"></span>
                 </div>
                 <button type="submit" class="submit-btn">Submit</button>
             </form>
